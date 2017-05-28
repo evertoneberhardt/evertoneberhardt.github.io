@@ -66,7 +66,10 @@ function carregaDados(dado){
 
 	for (i = 0; i < dados[dado].length; i++ ) {
 		
-		document.getElementById('main').innerHTML += '<div class="linhas"><div class="dia"><span class="texto">'+ dados[dado][i]["dia"] +'</span></div><div class="evento"><span class="alinha_evento">'+ dados[dado][i]["evento"] +'</span></div><div class="dia_semana"><span>'+ dados[dado][i]["dia_semana"] +'</span></div></div>\n';
+		document.getElementById('main').innerHTML += '<div class="linhas">\
+		<div class="dia"><span class="texto">'+ dados[dado][i]["dia"] +'</span></div>\
+		<div class="evento"><span class="alinha_evento">'+ dados[dado][i]["evento"] +'</span></div>\
+		<div class="dia_semana"><span>'+ dados[dado][i]["dia_semana"] +'</span></div></div>\n';
 
 	}
 }
