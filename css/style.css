@@ -1,0 +1,157 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body, html{
+	font-family: Roboto;
+	font-size: 100%;
+	overflow-x: hidden;
+	overflow-y: hidden;
+
+}
+
+a{
+	text-decoration: none;
+}
+
+#container{
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	background-color: #303030;
+
+}
+
+#header{
+	position: absolute;
+	width: 100%;
+	height: 2.500rem; /*40px;*/
+	background-color: #212121;
+}
+
+#btn-menu{
+	position: absolute;
+	float: left;
+	width: 2.250rem; /*36px;*/
+	height: 2.250rem; /*36px;*/
+	left: 0.313rem; /*5px;*/
+	top: 0.125rem; /*2px;*/
+}
+
+#nome-mes{
+	position: absolute;
+	width: 100%;
+	height: 2.500rem; /*40px;*/
+	float: left;
+	text-align: center;
+	display: table;
+	font-size: 1rem;
+}
+
+.alinha-nome-mes{
+	display: table-cell;
+	vertical-align: middle;
+	color: #FEFFFD;
+}
+
+#btn-mais{
+	position: relative;
+	float: right;
+	width: 2.250rem; /*36px;*/
+	height: 2.250rem; /*36px;*/
+	right: 0.313rem; /*5px;*/
+	top: 0.125rem; /*2px;*/
+}
+
+#menu{
+	position: absolute;
+	width: 13.750rem; /*220px;*/
+	height: 100%;
+	background-color: #505050;
+}
+
+.mrg{
+	width: 100%;
+	height: 2.500rem;
+}
+
+.btn{
+	display: table;
+	width: 100%;
+	height: 2.313rem; /*37px;*/
+	background-color: #424242;
+	border-bottom: 0.125rem solid #303030;
+	color: #83878A;
+}
+
+.alinha-txt-btn{
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: 0.625rem; /*10px;*/
+	
+}
+
+.btn:hover{
+	background-color: #008BE6;
+	color: #fefffd;
+}
+
+.btn:active{
+	background-color: #008BE6;
+	color: #fefffd;
+}
+
+#content{
+	width: 100%;
+	height: 100%;
+	background-color: #303030;
+	position: absolute;
+}
+
+.wrap{
+	width: 100%;
+	height: 4.688rem; /* 75px;--- 5.000rem; 80px -- 6.750rem; 108px;*/
+	border-bottom: 0.125rem solid #444; 
+}
+
+.dia{
+	display: table;
+	width: 30%;
+	height: 100%;
+	float: left;
+	color: #fefffd;
+	font-size: 2.813rem; /*45px;*/
+	font-weight: bold;
+	text-align: right;
+}
+
+.txt-dia{
+	display: table-cell;
+	vertical-align: middle;
+	
+}
+
+.txt-evento{
+	display: table-cell;
+	vertical-align: bottom;
+}
+
+.evento{
+	display: table;
+	width: 69%;
+	height: 50%;
+	float: right;
+	color: #fefffd;
+	font-size: 1rem;
+	font-style: italic;
+}
+
+.dia-semana{
+	width: 69%;
+	height: 50%;
+	float: right;
+	color: #fefffd;
+	font-size: 0.750rem; /*12px; --- 0.625rem; 10px;*/
+}
+
