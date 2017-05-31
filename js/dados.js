@@ -4,7 +4,7 @@ var dados = { "Janeiro" : [
 			{ "dia":"28" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" } ],
 
 			"Fevereiro" : [ 
-			{ "dia":"01" , "evento":"Terreira Iemanjá", "dia_semana":"Quarta, 18:00h" } ],
+			{ "dia":"01" , "evento":"Terreira Iemanjá", "dia_semana":"Quarta-feira, 18:00h" } ],
 
 			"Março" : [ 
 			{ "dia":"11" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" },
@@ -13,10 +13,12 @@ var dados = { "Janeiro" : [
 			"Abril" : [ 
 			{ "dia":"08" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" },
 			{ "dia":"15" , "evento":"Romper aleluia", "dia_semana":"Sábado, 06:00h" },
-			{ "dia":"22" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" } ],
+			{ "dia":"22" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" },
+			{ "dia":"23" , "evento":"Dia de Ogum", "dia_semana":"Terça-feira" } ],
 
 			"Maio" : [ 
 			{ "dia":"06" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" },
+			{ "dia":"13" , "evento":"Dia de preto-velho na Umbanda", "dia_semana":"Sábado" },
 			{ "dia":"20" , "evento":"Terreira Preto Velho", "dia_semana":"Sábado, 18:00h" } ],
 
 			"Junho" : [ 
@@ -34,7 +36,8 @@ var dados = { "Janeiro" : [
 
 			"Setembro" : [ 
 			{ "dia":"09" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" },
-			{ "dia":"23" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" } ],
+			{ "dia":"23" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" },
+			{ "dia":"27" , "evento":"Dia de Cosme e Damião", "dia_semana":"Quarta-feira" } ],
 
 			"Outubro" : [ 
 			{ "dia":"07" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" },
@@ -42,11 +45,13 @@ var dados = { "Janeiro" : [
 			{ "dia":"21" , "evento":"Peixe Manhã, Terreira", "dia_semana":"Sábado, 18:00h" } ],
 			"Novembro" : [ 
 			{ "dia":"04" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" },
+			{ "dia":"15" , "evento":"Dia da Umbanda", "dia_semana":"Quarta-feira" },
 			{ "dia":"18" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" } ],
 
 			"Dezembro" : [ 
 			{ "dia":"02" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" },
 			{ "dia":"09" , "evento":"Batuque", "dia_semana":"Sábado, 18:00h" },
-			{ "dia":"16" , "evento":"Peixe manhã, Terreira", "dia_semana":"Sábado, 18:00h" } ]
+			{ "dia":"16" , "evento":"Peixe manhã, Terreira", "dia_semana":"Sábado, 18:00h" },
+			{ "dia":"25" , "evento":"Dia de Oxalá", "dia_semana":"Segundo-feira" } ]
 
 		};

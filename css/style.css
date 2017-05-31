@@ -6,8 +6,10 @@
 body, html{
 	font-family: Roboto;
 	font-size: 100%;
-	overflow-x: hidden;
-	overflow-y: hidden;
+	/*overflow-x: hidden;
+	overflow-y: hidden;*/
+	width: 100vw;
+	height: 100vh;
 
 }
 
@@ -67,7 +69,7 @@ a{
 #menu{
 	position: absolute;
 	width: 13.750rem; /*220px;*/
-	height: 100%;
+	/*height: 100%;*/
 	background-color: #505050;
 }
 
@@ -76,28 +78,30 @@ a{
 	height: 2.500rem;
 }
 
-.btn{
+.btn, .btn-left{
 	display: table;
 	width: 100%;
 	height: 2.313rem; /*37px;*/
 	background-color: #424242;
 	border-bottom: 0.125rem solid #303030;
 	color: #83878A;
+
 }
 
-.alinha-txt-btn{
+.alinha-txt-btn, .alinha-txt-btn-left{
 	display: table-cell;
 	vertical-align: middle;
 	padding-left: 0.625rem; /*10px;*/
+	font-size: 1rem; /*16px*/
 	
 }
 
-.btn:hover{
+.btn:hover, .btn-left:hover{
 	background-color: #008BE6;
 	color: #fefffd;
 }
 
-.btn:active{
+.btn:active, .btn-left:active{
 	background-color: #008BE6;
 	color: #fefffd;
 }
@@ -111,7 +115,7 @@ a{
 
 .wrap{
 	width: 100%;
-	height: 4.688rem; /* 75px;--- 5.000rem; 80px -- 6.750rem; 108px;*/
+	height: 4.063rem;/*65px*/
 	border-bottom: 0.125rem solid #444; 
 }
 
@@ -121,7 +125,7 @@ a{
 	height: 100%;
 	float: left;
 	color: #fefffd;
-	font-size: 2.813rem; /*45px;*/
+	font-size: 2.500rem;/*40px  - 2.813rem;*/ /*45px;*/
 	font-weight: bold;
 	text-align: right;
 }
@@ -153,5 +157,12 @@ a{
 	float: right;
 	color: #fefffd;
 	font-size: 0.750rem; /*12px; --- 0.625rem; 10px;*/
+}
+
+#menu-left{
+	position: absolute;
+	right: 0;
+	width: 13.750rem; /*220px;*/
+	height: 100%;
 }
 
