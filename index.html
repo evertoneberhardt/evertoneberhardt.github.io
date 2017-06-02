@@ -12,13 +12,21 @@
 </head>
 <body>
 	<div id="container">
-		<div id="header" style="z-index: 5">
+	<input type="checkbox" id="check">
+	<input type="checkbox" id="check-right">
+		<div id="header" style="z-index: 4">
 			<div id="nome-mes"><span id="mes" class="alinha-nome-mes">Junho</span></div>
-			<a href="#" onclick="mudaIcone(0)"><div id="btn-menu" class="anima"><img id="image" src="imagens/menu.png"></div></a>
-			<a href="#"><div id="btn-mais" onclick="mudaIcone(1)"><img id="image-mais" src="imagens/mais.png"></div></a>
+			<!-- <a href="#" onclick="mudaIcone(0)"><div id="btn-menu" class="anima"><img id="image" src="imagens/menu.png"></div></a> -->
+			<!-- <a href="#"><div id="btn-mais" onclick="mudaIcone(1)"><img id="image-mais" src="imagens/mais.png"></div></a> -->
+			<div id="icon"><label id="lbl" for="check"><span id="spn"></span></label></div>
+
+			<div id="btn-right">
+				<div id="icon-right"><label id="lbl-right" for="check-right"><span id="spn-right"></span></label></div>
+			</div>
+			
 		</div>
 		
-		<div id="menu" style="z-index: 1">
+		<div id="menu" style="z-index: 3">
 			<div class="mrg"></div>
 			<a href="#" ><div class="btn" onclick="carregaMes(0)"> <span id="btn1"  class="alinha-txt-btn">Botao</span></div></a>
 			<a href="#" ><div class="btn" onclick="carregaMes(1)"> <span id="btn2"  class="alinha-txt-btn">Botao</span></div></a>
@@ -33,7 +41,7 @@
 			<a href="#" ><div class="btn" onclick="carregaMes(10)"><span id="btn11" class="alinha-txt-btn">Botao</span></div></a>
 		</div>
 
-		<div id="content" style="z-index: 3">
+		<div id="content" style="z-index: 1">
 			<!-- <div class="mrg"></div>
 			<div class="wrap">
 				<div class="dia"><span class="txt-dia"></span></div>
@@ -44,9 +52,9 @@
 			
 		</div>
 
-		<div id="menu-left" style="z-index: 2">
+		<div id="menu-right" style="z-index: 2">
 			<div class="mrg"></div>
-			<a href="#"><div class="btn-left"><span id="btn1-left"  class="alinha-txt-btn-left">Pontos Umbanda</span></div></a>
+			<a href="#"><div class="btn-left" onclick="fechaMenuLateral(1)"><span id="btn1-left"  class="alinha-txt-btn-left">Pontos Umbanda</span></div></a>
 		</div>
 		
 	</div>

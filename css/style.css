@@ -22,29 +22,39 @@ a{
 	width: 100vw;
 	height: 100vh;
 	background-color: #303030;
+	box-sizing: border-box;
+	overflow-x: hidden;
 
 }
 
 #header{
 	position: absolute;
 	width: 100%;
-	height: 2.500rem; /*40px;*/
+	height: 1.875rem; /*30px;*/
 	background-color: #212121;
+}
+
+#check{
+	display: none;
+}
+
+#check-right{
+	display: none;
 }
 
 #btn-menu{
 	position: absolute;
 	float: left;
-	width: 2.250rem; /*36px;*/
-	height: 2.250rem; /*36px;*/
+	width: 1.5rem; /*24px;*/
+	height: 1.5rem; /*24px;*/
 	left: 0.313rem; /*5px;*/
-	top: 0.125rem; /*2px;*/
+	top: 0.188rem; /*3px;*/
 }
 
 #nome-mes{
 	position: absolute;
 	width: 100%;
-	height: 2.500rem; /*40px;*/
+	height: 1.88rem; /*40px;*/
 	float: left;
 	text-align: center;
 	display: table;
@@ -60,10 +70,14 @@ a{
 #btn-mais{
 	position: relative;
 	float: right;
-	width: 2.250rem; /*36px;*/
-	height: 2.250rem; /*36px;*/
+	width: 1.5rem; /*36px;*/
+	height: 1.5rem; /*36px;*/
 	right: 0.313rem; /*5px;*/
-	top: 0.125rem; /*2px;*/
+	top: 0.188rem; /*2px;*/
+}
+#btn-mais #image-mais{
+	width: 1.5rem;
+	height: 1.5rem;
 }
 
 #menu{
@@ -71,11 +85,13 @@ a{
 	width: 13.750rem; /*220px;*/
 	/*height: 100%;*/
 	background-color: #505050;
+	transform: translateX(-13.750rem);
+	transition: all .2s linear;
 }
 
 .mrg{
 	width: 100%;
-	height: 2.500rem;
+	height: 1.875rem;
 }
 
 .btn, .btn-left{
@@ -159,10 +175,146 @@ a{
 	font-size: 0.750rem; /*12px; --- 0.625rem; 10px;*/
 }
 
-#menu-left{
+#menu-right{
 	position: absolute;
 	right: 0;
 	width: 13.750rem; /*220px;*/
 	height: 100%;
+	transform: translateX(13.750rem);
+	transition: all .2s linear;
 }
 
+#header #icon{
+    position: relative;
+    float: left;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 0.187rem;
+    margin-left: 0.312rem;
+
+}
+
+#icon #lbl{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #212121;
+	transition: all .2s linear;
+}
+
+#spn{
+	width: 1.125rem;
+	height: 0.125rem;
+	top:0.688rem;
+	left:0.188rem;
+	position: absolute;
+	background-color: #fff;
+	transition: all .2s linear;}
+
+#spn:before{
+	content: '';
+ 	width: 1.125rem;
+	height: 0.125rem;
+	bottom: -0.375rem;
+	position: absolute;
+	background-color: #fff;
+	transition: all .2s linear;
+}
+
+#spn:after{
+	content: '';
+ 	width: 1.125rem;
+	height: 0.125rem;
+	top: -0.375rem;
+	position: absolute;
+	background-color: #fff;
+	transition: all .2s linear;
+}
+/*----------botão right---------*/
+#btn-right{
+	position: absolute;
+	right: 0;
+	width: 1.875rem;
+	height: 1.875rem;
+}
+
+#header #icon-right{
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 0.187rem;
+    margin-right: 0.312rem;
+
+
+}
+
+#icon-right #lbl-right{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #212121;
+	transition: all .2s linear;
+	cursor: pointer;
+}
+
+#spn-right{
+	width: 0.250rem;
+	height: 0.250rem;
+	top:0.688rem;
+	left:0.625rem;
+	position: absolute;
+	background-color: #fff;
+	transition: all .2s linear;}
+
+#spn-right:before{
+	content: '';
+ 	width: 0.250rem;
+	height: 0.250rem;
+	bottom: -0.375rem;
+	position: absolute;
+	background-color: #fff;
+	transition: all .2s linear;
+}
+
+#spn-right:after{
+	content: '';
+ 	width: 0.250rem;
+	height: 0.250rem;
+	top: -0.375rem;
+	position: absolute;
+	background-color: #fff;
+	transition: all .2s linear;
+}
+
+#check:checked ~ div#header div#icon #lbl #spn{
+	background-color: transparent;
+}
+
+#check:checked ~ div#header div#icon #lbl #spn:before{
+	transform: translate(0rem,-0.375rem) rotate(-45deg);
+}
+
+#check:checked ~ div#header div#icon #lbl #spn:after{
+	transform: translate(0rem, 0.375rem) rotate(45deg);
+}
+
+#check:checked ~ div#menu{
+	transform: translateX(0);
+}
+
+#check-right:checked ~ div#header div#btn-right div#icon-right #lbl-right #spn-right{
+	transform: rotate(-90deg);
+	border-radius: 50%;
+}
+
+#check-right:checked ~ div#header div#btn-right div#icon-right #lbl-right #spn-right:before{
+	border-radius: 50%;
+}
+
+#check-right:checked ~ div#header div#btn-right div#icon-right #lbl-right #spn-right:after{
+	border-radius: 50%;
+}
+
+#check-right:checked ~ div#menu-right{
+	transform: translateX(0);
+}

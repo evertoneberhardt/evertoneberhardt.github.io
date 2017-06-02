@@ -49,7 +49,8 @@ function carregaMenu(meses) {
 //----Funcao para carregar os dados apartir do mes corrente do dispositivo----
 function carregaMes(mes1) {
 	document.getElementById('mes').innerText = arrmes[arMes[mes1]];
-	mudaIcone(0);
+	// mudaIcone(0);
+	fechaMenuLateral(0);
 	carregaDados(arrmes[arMes[mes1]]);
 	carregaMenu(arMes[mes1]);
 	
@@ -76,7 +77,17 @@ function sair() {
 	fechaApp.fechar();
 }
 
-
+//----Funçao para fechar menu laterais-----
+function fechaMenuLateral(e){
+	//----0 fecha menu lateral esquerdo----
+	//----1 fecha menu lateral direito-----
+	if (e == 0) {
+		document.getElementById('check').checked = false;
+	}
+	if (e== 1) {
+		document.getElementById('check-right').checked = false;
+	}
+}
 //----Funcao para mudar icone do botao de menu----
 // function mudaIcone() {
 // 	var str = document.getElementById('image').src;
@@ -115,42 +126,42 @@ function sair() {
 
 
 //----Funcao para mudar icone do botaos de menu----
-function mudaIcone (key) {
-	switch (key) {
-		case 0:
-			var str = document.getElementById('image').src;
-			var res = str.slice(-8);
+// function mudaIcone (key) {
+// 	switch (key) {
+// 		case 0:
+// 			var str = document.getElementById('image').src;
+// 			var res = str.slice(-8);
 	
-			if (res == 'menu.png') {
-				document.getElementById('image').src = "imagens/back.png";
-				document.getElementById('menu').style.zIndex = 4;
-				document.getElementById('image-mais').src = "imagens/mais.png";
-				document.getElementById('menu-left').style.zIndex = 2;
-			}
-			if (res == 'back.png') {
-				document.getElementById('image').src = "imagens/menu.png";
-				document.getElementById('menu').style.zIndex = 1;
-			}
-			break;
+// 			if (res == 'menu.png') {
+// 				document.getElementById('image').src = "imagens/back.png";
+// 				document.getElementById('menu').style.zIndex = 4;
+// 				document.getElementById('image-mais').src = "imagens/mais.png";
+// 				document.getElementById('menu-left').style.zIndex = 2;
+// 			}
+// 			if (res == 'back.png') {
+// 				document.getElementById('image').src = "imagens/menu.png";
+// 				document.getElementById('menu').style.zIndex = 1;
+// 			}
+// 			break;
 
-		case 1:
-			var strM = document.getElementById('image-mais').src;
-			var resM = strM.slice(-8);
+// 		case 1:
+// 			var strM = document.getElementById('image-mais').src;
+// 			var resM = strM.slice(-8);
 	
 	
-			if (resM == 'mais.png') {
-				document.getElementById('image-mais').src = "imagens/less.png";
-				document.getElementById('menu-left').style.zIndex = 4;
-				document.getElementById('image').src = "imagens/menu.png";
-				document.getElementById('menu').style.zIndex = 1;
-			}
-			if (resM == 'less.png') {
-				document.getElementById('image-mais').src = "imagens/mais.png";
-				document.getElementById('menu-left').style.zIndex = 2;
-			}
-			break;
-	}
-}
+// 			if (resM == 'mais.png') {
+// 				document.getElementById('image-mais').src = "imagens/less.png";
+// 				document.getElementById('menu-left').style.zIndex = 4;
+// 				document.getElementById('image').src = "imagens/menu.png";
+// 				document.getElementById('menu').style.zIndex = 1;
+// 			}
+// 			if (resM == 'less.png') {
+// 				document.getElementById('image-mais').src = "imagens/mais.png";
+// 				document.getElementById('menu-left').style.zIndex = 2;
+// 			}
+// 			break;
+// 	}
+// }
 
 
 //----Chama as funcoes ao carregar apagina----

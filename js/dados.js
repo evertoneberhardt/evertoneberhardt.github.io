@@ -14,7 +14,7 @@ var dados = { "Janeiro" : [
 			{ "dia":"08" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" },
 			{ "dia":"15" , "evento":"Romper aleluia", "dia_semana":"Sábado, 06:00h" },
 			{ "dia":"22" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" },
-			{ "dia":"23" , "evento":"Dia de Ogum", "dia_semana":"Terça-feira" } ],
+			{ "dia":"23" , "evento":"Dia de Ogum", "dia_semana":"Domingo" } ],
 
 			"Maio" : [ 
 			{ "dia":"06" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" },
