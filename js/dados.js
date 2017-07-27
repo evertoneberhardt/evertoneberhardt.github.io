@@ -1,3 +1,4 @@
+var conect = 1;
 
 var dados = { "JANEIRO" : [ 
 			{ "dia":"14" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" },
