@@ -1,4 +1,4 @@
-var dados = { "JANEIRO" : [ 
+dados = { "JANEIRO" : [ 
 			{ "dia":"14" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" },
 			{ "dia":"28" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" } ],
 
