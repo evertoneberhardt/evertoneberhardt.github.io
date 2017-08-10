@@ -30,7 +30,7 @@ var dados = { "JANEIRO" : [
 			{ "dia":"29" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" } ],
 
 			"AGOSTO" : [ 
-			{ "dia":"11" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sexta-feira, 18:00h" },
+			{ "dia":"11" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sexta-feira, 20:00h" },
 			{ "dia":"26" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" } ],
 
 			"SETEMBRO" : [ 
