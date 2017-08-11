@@ -1,64 +1,115 @@
-var strJson = '';
-var objJson = '';
 var data = new Date();
+var ano = data.getFullYear();
 var mes = data.getMonth();
 var dia = data.getDate();
 var id = 0;
 var temp = '';
-var buffTemp = ''; 
-var obj_key_version = '';
-
+var buffTemp = '';
+var onOff = 0;
 
 var array_mes = ["JANEIRO", "FEVEREIRO", "MARÇO", "ABRIL", "MAIO", "JUNHO",
 				 "JULHO", "AGOSTO", "SETEMBRO", "OUTUBRO", "NOVEMBRO", "DEZEMBRO"];
 
+document.getElementById('ano').innerHTML = ano;
+document.getElementById('nome-mes').innerHTML = array_mes[mes];
 
-function check_version(){
-	try{
+var list = document.getElementsByClassName("btn-menu")[mes];
+list.getElementsByClassName("indicador")[0].style.backgroundColor = '#E91E63';
 
-		if (localStorage.key_version == version) {
-		
-		 	load_dados();
-		
-		}else{
-			//localStorage.setItem('key_version',version);
-			//document.getElementsByTagName('script')[1].setAttribute('src', 'js/dados.js');
-			document.getElementsByTagName('script')[1].setAttribute('src', 'https://evertoneberhardt.github.io/js/dados.js');
-			document.getElementsByTagName('script')[1].setAttribute('onload', 'grava_dados()');
-			document.getElementsByTagName('script')[1].setAttribute('onerror', 'error()');
-		
-		}
-	}
-	catch(err) {
-		erro_inesperado();
+
+function offLine() {
+	var strJsonVerifi = localStorage.getItem('dadosJson');
+	if (strJsonVerifi != null) {
+		load_dados();
+	}else{
+		//setTimeout(errorInternet, 500);
+		// console.log(strJsonVerifi);
+		errorInternet();
 	}
 }
 
-function grava_dados(){
-	try{
+function errorInternet(){
+	document.getElementById("section").innerHTML = '<section class="bloco" id="no-internet">\
+													 <span>Sem Conexão com a internet</span>\
+									<a href="" onclick="grava_dados()"><div class="tentar" >Tentar novamente </div></a>\
+			    					</section>';
+}
 
-	strJson = JSON.stringify(dados)
-	localStorage.setItem('dadosJson', strJson);
-	localStorage.setItem('key_version',version);
-	check_version();
+
+function escreveNomeMes(e){
+	//escreve o nome do mes
+		document.getElementById('nome-mes').innerHTML = array_mes[e];
+}
+
+
+
+
+var btnHeader = document.getElementById('ico');
+btnHeader.addEventListener('click', abreMenu);
+
+function abreMenu() {
+	var btnMenu = document.getElementsByClassName('btn-menu');
+	//btnMenu[mes].style.backgroundColor = '#E91E63';
+	var i;
+	var marginTop = 3.125;
+
+	for (i = 0; i < btnMenu.length; i++) {
+		btnMenu[i].style.transition = 'all .2s linear';
+		// btnMenu[i].addEventListener('click', abreMenu);
+	}
+
+	if (onOff == 0) {
+		document.getElementsByClassName('fundo-ico-box')[0].style.transform = 'scale(1)';
+
+		for (i = 0; i < btnMenu.length; i++) {
+			btnMenu[i].style.marginTop = marginTop.toString() + 'rem';
+			btnMenu[i].style.visibility = 'visible';
+			marginTop += 2.5;
+		}
+
+		onOff = 1;
+	}else{
+
+		document.getElementsByClassName('fundo-ico-box')[0].style.transform = 'scale(0)';
+		// document.getElementById('menu-header-check').checked = false;
+
+		for (i = 0; i < btnMenu.length; i++) {
+			btnMenu[i].style.marginTop = '0.375rem';
+			btnMenu[i].style.visibility = 'hidden';
+		}
+
+		onOff = 0;
+	}
+}
+
+function grava_dados() {
+	try{	
+
+	var strJson = JSON.stringify(dados);
+	window.localStorage.setItem('dadosJson', strJson);
+	load_dados();
 
 	}
 	catch(err) {
-		erro_inesperado();
+		offLine();
 	}
 }
 
 function load_dados(){
 	try{
 
-		objJson = JSON.parse(localStorage.dadosJson);
+		strDados = window.localStorage.getItem('dadosJson');
+		var objJson = JSON.parse(strDados);
 		var str = array_mes[mes];
-		var res = 'rd_' + str.toLowerCase();
+		str = str.slice(0,3);
+		var res = 'rd-' + str.toLowerCase();
 
-		document.getElementById('sections').innerHTML =  '';
+		//limpa a tela
+		document.getElementById('section').innerHTML =  '';
 
 		//escreve o nome do mes
-		document.getElementById('nomemes').innerHTML = array_mes[mes];
+		document.getElementById('nome-mes').innerHTML = array_mes[mes];
+		
 		//carrega o mes corrente
 		document.getElementById(res).checked = true;
 
@@ -71,9 +122,9 @@ function load_dados(){
 			temp = '';
 
 			for (var d = 0; d < objJson[id].length; d++) {
-				temp += '<div class="wrap"><div class="dia"><span class="txt-dia">'+ objJson[id][d]["dia"] +'</span></div>\
-			<div class="evento"><span class="txt-evento">'+ objJson[id][d]["evento"] +'</span></div>\
-			<div class="dia-semana"><span>'+ objJson[id][d]["dia_semana"] +'</span></div></div>';
+				temp += '<div class="row"><div class="dia">'+ objJson[id][d]["dia"] +'</div><div class="evento">\
+						<div class="descricao">'+ objJson[id][d]["evento"] +'</div>\
+						<div class="dia-semana">'+ objJson[id][d]["dia_semana"] +'</div></div></div>';
 			
 			}
 
@@ -82,42 +133,16 @@ function load_dados(){
 		
 		}
 
-		document.getElementById('sections').innerHTML =  buffTemp;
+		document.getElementById('section').innerHTML =  buffTemp;
 
 	}
 	catch(err) {
-		erro_inesperado();
+		offLine();
 	}
     
 }
 
-function load_offline(){
-	obj_key_version = localStorage.getItem('key_version');
+// window.onload = function(){
+// 	setTimeout(grava_dados, 500);
+// }
 
-	if (obj_key_version != null) {
-		load_dados();
-	}else{
-		error();
-	}
-}
-
-function error(){
-	document.getElementById("sections").innerHTML = '<section class="bloco" id="no-internet">\
-													 <span>Sem Conexão com a internet</span>\
-									<a href=""><div class="tentar" >Tentar novamente </div></a>\
-			    					</section>';
-}
-
-function erro_inesperado(){
-	document.getElementById("sections").innerHTML = '<section class="bloco" id="no-internet">\
-													 <span>Erro: ocorreu um erro inesperado<br>\
-														contate o desenvolvedor</span></section>';
-}
-
-function fechaMenu(e){
-	//escreve o nome do mes
-	document.getElementById('nomemes').innerHTML = array_mes[e];
-
-	//fecha o menu lateral esquerdo
-	document.getElementById('btnmenu').checked = false;
-}
