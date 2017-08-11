@@ -55,7 +55,7 @@ var dados = { "JANEIRO" : [
 
 		};
 
-this.onload = function(){
+window.onload = function(){
 	grava_dados();
 }
 
