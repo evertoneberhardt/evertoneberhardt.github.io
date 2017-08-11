@@ -58,4 +58,3 @@ var dados = { "JANEIRO" : [
 window.onload = function(){
 	grava_dados();
 }
-
