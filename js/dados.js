@@ -1,4 +1,4 @@
-dados = "{ "JANEIRO" : [ 
+dados = { "JANEIRO" : [ 
 			{ "dia":"14" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" },
 			{ "dia":"28" , "evento":"Terreira Ogum de Mallê", "dia_semana":"Sábado, 18:00h" } ],
 
@@ -53,7 +53,7 @@ dados = "{ "JANEIRO" : [
 			{ "dia":"16" , "evento":"Peixe manhã, Terreira", "dia_semana":"Sábado, 18:00h" },
 			{ "dia":"25" , "evento":"Dia de Oxalá", "dia_semana":"Segundo-feira" } ]
 
-		}";
+		};
 
 
 
