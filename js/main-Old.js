@@ -6,7 +6,6 @@ var id = 0;
 var temp = '';
 var buffTemp = '';
 var onOff = 0;
-var strJson;
 
 var array_mes = ["JANEIRO", "FEVEREIRO", "MARÇO", "ABRIL", "MAIO", "JUNHO",
 				 "JULHO", "AGOSTO", "SETEMBRO", "OUTUBRO", "NOVEMBRO", "DEZEMBRO"];
@@ -18,72 +17,31 @@ var list = document.getElementsByClassName("btn-menu")[mes];
 list.getElementsByClassName("indicador")[0].style.backgroundColor = '#E91E63';
 
 
-// function loadJSON() {
-//   var xhttp = new XMLHttpRequest();
-//   xhttp.onreadystatechange = function() {
-//     if (this.readyState == 4 && this.status == 200) {
-//      //leJson(this.responseText);
-//      //grava_dados(this.responseText);
-//      alert(this.responseText);
-//     }
-//   };
-  
-//   	xhttp.open("GET", "https://evertoneberhardt.github.io/js/dados.json", true);
-//   	xhttp.send();
-  
-// }
-
-function loadJSON() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = respostaServidor;
-  	xhttp.open("GET", "https://evertoneberhardt.github.io/js/dados.json", true);
-  	xhttp.send();
-  function respostaServidor(){
-  	if (xhttp.readyState == 4) {
-  		if (xhttp.status == 200) {
-  			grava_dados(xhttp.responseText);
-  		}else{
-  			offLine();
-  		}
-  	}
-  };
-}
-
-function grava_dados(jsonServidor) {
-	try{	
-
-	//strJson = JSON.stringify(dados);
-	//window.localStorage.setItem('dadosJson', strJson);
-	window.localStorage.setItem('dadosJson', jsonServidor);
-	load_dados();
-
-	}
-	catch(err) {
-		offLine();
-	}
-}
-
 function offLine() {
 	var strJsonVerifi = localStorage.getItem('dadosJson');
 	if (strJsonVerifi != null) {
 		load_dados();
 	}else{
+		//setTimeout(errorInternet, 500);
+		// console.log(strJsonVerifi);
 		errorInternet();
 	}
 }
 
-function errorInternet() {
+function errorInternet(){
 	document.getElementById("section").innerHTML = '<section class="bloco" id="no-internet">\
 													 <span>Sem Conexão com a internet</span>\
-									<a href=""><div class="tentar" >Tentar novamente </div></a>\
+									<a href="" onclick="grava_dados()"><div class="tentar" >Tentar novamente </div></a>\
 			    					</section>';
 }
 
 
-function escreveNomeMes(e) {
+function escreveNomeMes(e){
 	//escreve o nome do mes
 		document.getElementById('nome-mes').innerHTML = array_mes[e];
 }
+
+
 
 
 var btnHeader = document.getElementById('ico');
@@ -124,8 +82,20 @@ function abreMenu() {
 	}
 }
 
+function grava_dados() {
+	try{	
 
-function load_dados() {
+	var strJson = JSON.stringify(dados);
+	window.localStorage.setItem('dadosJson', strJson);
+	load_dados();
+
+	}
+	catch(err) {
+		offLine();
+	}
+}
+
+function load_dados(){
 	try{
 
 		strDados = window.localStorage.getItem('dadosJson');
@@ -172,7 +142,7 @@ function load_dados() {
     
 }
 
+// window.onload = function(){
+// 	setTimeout(grava_dados, 500);
+// }
 
-window.onload = function() {
-	loadJSON();
-}
