@@ -5,43 +5,39 @@ var dia = data.getDate();
 var id = 0;
 var temp = '';
 var buffTemp = '';
-var onOff = 0;
 var strJson;
+var versionCompare = 0;
+var compare = 0;
 
 var array_mes = ["JANEIRO", "FEVEREIRO", "MARÇO", "ABRIL", "MAIO", "JUNHO",
 				 "JULHO", "AGOSTO", "SETEMBRO", "OUTUBRO", "NOVEMBRO", "DEZEMBRO"];
 
-document.getElementById('ano').innerHTML = ano;
-document.getElementById('nome-mes').innerHTML = array_mes[mes];
+var array_ponto = ["defumacao", "hinoAbertura", "camadaPaiOgum", "descarregoNaPorta", "chamadaCaboclo", "ogum", "inhansa", "xango", "matas", "oxum", "iemanja",
+					 "oxala", "pontosCaboclosEmbora", "paiOgumEmbora", "hinoEncerramento", "baterCabeca"];
 
-var list = document.getElementsByClassName("btn-menu")[mes];
-list.getElementsByClassName("indicador")[0].style.backgroundColor = '#E91E63';
+array_nome_ponto = [];				 
+
+// var list = document.getElementsByClassName("btn-menu")[mes];
+// list.getElementsByClassName("indicador")[0].style.backgroundColor = '#E91E63';
 
 
-// function loadJSON() {
-//   var xhttp = new XMLHttpRequest();
-//   xhttp.onreadystatechange = function() {
-//     if (this.readyState == 4 && this.status == 200) {
-//      //leJson(this.responseText);
-//      //grava_dados(this.responseText);
-//      alert(this.responseText);
-//     }
-//   };
-  
-//   	xhttp.open("GET", "https://evertoneberhardt.github.io/js/dados.json", true);
-//   	xhttp.send();
-  
-// }
-
-function loadJSON() {
+function loadJSON(url, local) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = respostaServidor;
-  	xhttp.open("GET", "https://evertoneberhardt.github.io/js/dados.json", true);
+  	xhttp.open("GET", url, true);
   	xhttp.send();
   function respostaServidor(){
   	if (xhttp.readyState == 4) {
   		if (xhttp.status == 200) {
-  			grava_dados(xhttp.responseText);
+
+  			if (local == 0) {
+  				versionCompare = xhttp.responseText;
+  				compare = xhttp.responseText;
+  				grava_dados(xhttp.responseText, local);
+  			} else {
+  				grava_dados(xhttp.responseText, local);
+  			}
+  			
   		}else{
   			offLine();
   		}
@@ -49,81 +45,61 @@ function loadJSON() {
   };
 }
 
-function grava_dados(jsonServidor) {
-	try{	
+function grava_dados(jsonServidor, local) {
+	try{
 
-	//strJson = JSON.stringify(dados);
-	//window.localStorage.setItem('dadosJson', strJson);
-	window.localStorage.setItem('dadosJson', jsonServidor);
-	load_dados();
+		if (local == 0) {
+
+			var keyVersion = window.localStorage.getItem('version');
+
+			if (!keyVersion) {
+				window.localStorage.setItem('version', 0.1);
+				keyVersion = window.localStorage.getItem('version');
+			} 
+
+			if (versionCompare > keyVersion) {
+				window.localStorage.setItem('version', jsonServidor);
+				loadJSON("https://evertoneberhardt.github.io/js/dados.json" , 1);
+			}else{
+				load_dados();
+			}
+
+			//
+		}
+
+		if (local == 1) {
+			window.localStorage.setItem('dadosJson', jsonServidor);
+			loadJSON("https://evertoneberhardt.github.io/js/pontos.json" , 2);
+		} 
+		if (local == 2) {
+			window.localStorage.setItem('pontosJson', jsonServidor);
+			load_dados();
+		}
 
 	}
 	catch(err) {
-		offLine();
+		//offLine();
+		console.log('grava dados  ' + err);
 	}
 }
 
 function offLine() {
-	var strJsonVerifi = localStorage.getItem('dadosJson');
-	if (strJsonVerifi != null) {
-		load_dados();
-	}else{
-		errorInternet();
-	}
+
+		var strJsonVerifiDados = localStorage.getItem('dadosJson');
+		var strJsonVerifiPontos = localStorage.getItem('pontosJson');
+		if (strJsonVerifiDados != null && strJsonVerifiPontos != null) {
+			load_dados();
+		}else{
+			errorInternet();
+		}
+	
 }
 
 function errorInternet() {
-	document.getElementById("section").innerHTML = '<section class="bloco" id="no-internet">\
-													 <span>Sem Conexão com a internet</span>\
-									<a href=""><div class="tentar" >Tentar novamente </div></a>\
-			    					</section>';
+	var net = document.getElementById("sem-internet");
+	net.style.display = 'flex';
+	net.innerHTML = '<span>Sem Conexão com a internet</span><a href=""><div class="tentar" >Tentar novamente </div></a>';
 }
-
-
-function escreveNomeMes(e) {
-	//escreve o nome do mes
-		document.getElementById('nome-mes').innerHTML = array_mes[e];
-}
-
-
-var btnHeader = document.getElementById('ico');
-btnHeader.addEventListener('click', abreMenu);
-
-function abreMenu() {
-	var btnMenu = document.getElementsByClassName('btn-menu');
-	//btnMenu[mes].style.backgroundColor = '#E91E63';
-	var i;
-	var marginTop = 3.125;
-
-	for (i = 0; i < btnMenu.length; i++) {
-		btnMenu[i].style.transition = 'all .2s linear';
-		// btnMenu[i].addEventListener('click', abreMenu);
-	}
-
-	if (onOff == 0) {
-		document.getElementsByClassName('fundo-ico-box')[0].style.transform = 'scale(1)';
-
-		for (i = 0; i < btnMenu.length; i++) {
-			btnMenu[i].style.marginTop = marginTop.toString() + 'rem';
-			btnMenu[i].style.visibility = 'visible';
-			marginTop += 2.5;
-		}
-
-		onOff = 1;
-	}else{
-
-		document.getElementsByClassName('fundo-ico-box')[0].style.transform = 'scale(0)';
-		// document.getElementById('menu-header-check').checked = false;
-
-		for (i = 0; i < btnMenu.length; i++) {
-			btnMenu[i].style.marginTop = '0.375rem';
-			btnMenu[i].style.visibility = 'hidden';
-		}
-
-		onOff = 0;
-	}
-}
-
 
 function load_dados() {
 	try{
@@ -133,46 +109,69 @@ function load_dados() {
 		var str = array_mes[mes];
 		str = str.slice(0,3);
 		var res = 'rd-' + str.toLowerCase();
-
-		//limpa a tela
-		document.getElementById('section').innerHTML =  '';
-
-		//escreve o nome do mes
-		document.getElementById('nome-mes').innerHTML = array_mes[mes];
-		
-		//carrega o mes corrente
-		document.getElementById(res).checked = true;
+		var nomeMeses = '';
 
 		buffTemp = '';
 
 		for (var i = 0; i < array_mes.length; i++) {
 
 			id = array_mes[i];
-
+			nomeMeses = id;
+			nomeMeses = nomeMeses.slice(0,3).toLowerCase();
 			temp = '';
 
+
 			for (var d = 0; d < objJson[id].length; d++) {
-				temp += '<div class="row"><div class="dia">'+ objJson[id][d]["dia"] +'</div><div class="evento">\
-						<div class="descricao">'+ objJson[id][d]["evento"] +'</div>\
-						<div class="dia-semana">'+ objJson[id][d]["dia_semana"] +'</div></div></div>';
+
+				temp += '<div class="row"><div class="dia">'+ objJson[id][d]["dia"] +'</div><div class="descricao"><div class="evento">'+ objJson[id][d]["evento"] +'</div>\
+						 <div class="dia-semana">'+ objJson[id][d]["dia_semana"] +'</div></div></div>';
 			
 			}
 
-			//console.log(temp);
-			buffTemp += '<section class="bloco" >\n' + temp + '\n</section>\n';
-		
+			document.getElementById(nomeMeses).innerHTML = '<div class="header-mes"> <div id="mes">' + id + '</div> <div id="ano">' + ano + '</div> </div>' + temp;
 		}
 
-		document.getElementById('section').innerHTML =  buffTemp;
-
+		document.getElementById(res).checked = true;
+		load_pontos();
 	}
 	catch(err) {
-		offLine();
+		//offLine();
+		console.log('load dados   '+ err);
 	}
     
 }
 
+function load_pontos() {
+	try{
+		var strPontos = window.localStorage.getItem('pontosJson');
+		var objPontos = JSON.parse(strPontos);
+		var idp;
+		var tempPonto = '';
+		var buffPonto = '';
+		for (var i = 0; i < array_ponto.length; i++) {
+			idp = array_ponto[i];
+			tempPonto = '';
+
+			array_nome_ponto[i] = objPontos[idp][0]["nomePonto"];
+
+			for (var p = 0; p < objPontos[idp].length; p++) {
+				tempPonto += '<div class="txt-ponto">'+ objPontos[idp][p]["ponto"] +'</div><div class="spcPontos"><span class="separador"></span></div>'
+				
+			}
+
+			buffPonto += '<section class="bloco-pontos" id="scroll-ponto">' + tempPonto + '</section>';
+		}
+		document.getElementById('bloco-pontos-pincipal').innerHTML = buffPonto;
+		document.getElementById('titulo').innerHTML = array_nome_ponto[0];
+
+		document.getElementById('container').style.display = 'block';
+		document.getElementById('load-box') .style.display = 'none';
+	}catch(err){
+		console.log('load pontos   '+ err);
+	}
+}
+
 
 window.onload = function() {
-	loadJSON();
+	loadJSON("https://evertoneberhardt.github.io/js/version.js", 0);
 }

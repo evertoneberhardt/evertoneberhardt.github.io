@@ -1,129 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<link rel="manifest" href="/manifest.json">
 	<meta name=viewport content="width=device-width, initial-scale=1">
 	<meta charset="utf-8" />
-	<link rel="manifest" href="manifest.json">
+	<link rel="stylesheet" type="text/css" href="css/loader.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/icone-menu.css">
     <title>Calendário Ilê</title>
+
+
 </head>
 <body>
-<input type="checkbox" id="menu-header-check">
-<header class="header">
-	<div class="spc-header"></div>
-	<div class="fundo-ico-box"></div>
-	<div class="menu-header"><div id="ico-box"><label id="ico" for="menu-header-check"><span id="span"></span></label></div></div>
-	<div id="nome-mes">******</div><div id="ano">****</div>
-</header>
+<div id="container">
 
-<nav class="menu" id="scroll-menu">
-	<label for="rd-jan" class="btn-menu" onclick="escreveNomeMes(0)">
-		<span class="txt-btn-mes">JAN</span>
-		<span class="mes-atual"><span class="indicador"></span></span>
-	</label>
+	<input type="checkbox" id="menu-header-check">
+	<header class="header">
+		<div class="menu-header"><div id="ico-box"><label id="ico" for="menu-header-check"><span id="span"></span></label></div></div>
+	</header>
 
-	<label for="rd-fev" class="btn-menu" onclick="escreveNomeMes(1)">
-		<span class="txt-btn-mes">FEV</span>
-		<span class="mes-atual"><span class="indicador"></span></span>
-	</label>
+	<div class="menu">
+			<label for="rd-jan" class="btn-menu">JAN</label>
+			<label for="rd-fev" class="btn-menu">FEV</label>
+			<label for="rd-mar" class="btn-menu">MAR</label>
+			<label for="rd-abr" class="btn-menu">ABR</label>
+			<label for="rd-mai" class="btn-menu">MAI</label>
+			<label for="rd-jun" class="btn-menu">JUN</label>
+			<label for="rd-jul" class="btn-menu">JUL</label>
+			<label for="rd-ago" class="btn-menu">AGO</label>
+			<label for="rd-set" class="btn-menu">SET</label>
+			<label for="rd-out" class="btn-menu">OUT</label>
+			<label for="rd-nov" class="btn-menu">NOV</label>
+			<label for="rd-dez" class="btn-menu">DEZ</label>
+			<label id="rd-menu-pontos" for="rd-pontos" class="btn-menu btn-pontos">PONTOS</label>	
+	</div>
 
-	<label for="rd-mar" class="btn-menu" onclick="escreveNomeMes(2)">
-		<span class="txt-btn-mes">MAR</span>
-		<span class="mes-atual"><span class="indicador"></span></span>
-	</label>
+	<div class="scroll">
+		<input type="radio" name="grupo" id="rd-jan">
+		<input type="radio" name="grupo" id="rd-fev">
+		<input type="radio" name="grupo" id="rd-mar">
+		<input type="radio" name="grupo" id="rd-abr">
+		<input type="radio" name="grupo" id="rd-mai">
+		<input type="radio" name="grupo" id="rd-jun">
+		<input type="radio" name="grupo" id="rd-jul">
+		<input type="radio" name="grupo" id="rd-ago">
+		<input type="radio" name="grupo" id="rd-set">
+		<input type="radio" name="grupo" id="rd-out">
+		<input type="radio" name="grupo" id="rd-nov">
+		<input type="radio" name="grupo" id="rd-dez">
+		<input type="radio" name="grupo" id="rd-pontos">
 
-	<label for="rd-abr" class="btn-menu" onclick="escreveNomeMes(3)">
-		<span class="txt-btn-mes">ABR</span>
-		<span class="mes-atual"><span class="indicador"></span></span>
-	</label>
+		<section id="section">
+			<section class="bloco" id="jan"></section>
+			<section class="bloco" id="fev"></section>
+			<section class="bloco" id="mar"></section>
+			<section class="bloco" id="abr"></section>
+			<section class="bloco" id="mai"></section>
+			<section class="bloco" id="jun"></section>
+			<section class="bloco" id="jul"></section>
+			<section class="bloco" id="ago"></section>
+			<section class="bloco" id="set"></section>
+			<section class="bloco" id="out"></section>
+			<section class="bloco" id="nov"></section>
+			<section class="bloco" id="dez"></section>
 
-	<label for="rd-mai" class="btn-menu" onclick="escreveNomeMes(4)">
-		<span class="txt-btn-mes">MAI</span>
-		<span class="mes-atual"><span class="indicador"></span></span>
-	</label>
+			<section class="bloco-pontos-scroll" id="pontos">
+				
+				<header class="header-pontos">
+					<span id="titulo">Hino de Abertura</span>
+					<label id="voltar" class="btn-voltar"></label>
+					<label id="avancar" class="btn-voltar-right"></label>
+				</header>
 
-	<label for="rd-jun" class="btn-menu" onclick="escreveNomeMes(5)">
-		<span class="txt-btn-mes">JUN</span>
-		<span class="mes-atual"><span class="indicador"></span></span>
-	</label>
+				<input type="radio" name="grupo-pontos" class="radio-pontos" id="rd-ponto-0" >
+				<input type="radio" name="grupo-pontos" class="radio-pontos" id="rd-ponto-1" >
+				<input type="radio" name="grupo-pontos" class="radio-pontos" id="rd-ponto-2" >
+				<input type="radio" name="grupo-pontos" class="radio-pontos" id="rd-ponto-3" >
+				<input type="radio" name="grupo-pontos" class="radio-pontos" id="rd-ponto-4" >
+				<input type="radio" name="grupo-pontos" class="radio-pontos" id="rd-ponto-5" >
+				<input type="radio" name="grupo-pontos" class="radio-pontos" id="rd-ponto-6" >
+				<input type="radio" name="grupo-pontos" class="radio-pontos" id="rd-ponto-7" >
+				<input type="radio" name="grupo-pontos" class="radio-pontos" id="rd-ponto-8" >
+				<input type="radio" name="grupo-pontos" class="radio-pontos" id="rd-ponto-9" >
+				<input type="radio" name="grupo-pontos" class="radio-pontos" id="rd-ponto-10" >
+				<input type="radio" name="grupo-pontos" class="radio-pontos" id="rd-ponto-11" >
+				<input type="radio" name="grupo-pontos" class="radio-pontos" id="rd-ponto-12" >
+				<input type="radio" name="grupo-pontos" class="radio-pontos" id="rd-ponto-13" >
+				<input type="radio" name="grupo-pontos" class="radio-pontos" id="rd-ponto-14" >
+				<input type="radio" name="grupo-pontos" class="radio-pontos" id="rd-ponto-15" >
 
-	<label for="rd-jul" class="btn-menu" onclick="escreveNomeMes(6)">
-		<span class="txt-btn-mes">JUL</span>
-		<span class="mes-atual"><span class="indicador"></span></span>
-	</label>
+				<section id="bloco-pontos-pincipal">
 
-	<label for="rd-ago" class="btn-menu" onclick="escreveNomeMes(7)">
-		<span class="txt-btn-mes">AGO</span>
-		<span class="mes-atual"><span class="indicador"></span></span>
-	</label>
+					<!-- <section class="bloco-pontos">
+						<div class="txt-ponto"></div>
+						<div class="spcPontos"> <span class="separador"></span> </div>
+					</section> -->
 
-	<label for="rd-set" class="btn-menu" onclick="escreveNomeMes(8)">
-		<span class="txt-btn-mes">SET</span>
-		<span class="mes-atual"><span class="indicador"></span></span>
-	</label>
 
-	<label for="rd-out" class="btn-menu" onclick="escreveNomeMes(9)">
-		<span class="txt-btn-mes">OUT</span>
-		<span class="mes-atual"><span class="indicador"></span></span>
-	</label>
 
-	<label for="rd-nov" class="btn-menu" onclick="escreveNomeMes(10)">
-		<span class="txt-btn-mes">NOV</span>
-		<span class="mes-atual"><span class="indicador"></span></span>
-	</label>
-
-	<label for="rd-dez" class="btn-menu" onclick="escreveNomeMes(11)">
-		<span class="txt-btn-mes">DEZ</span>
-		<span class="mes-atual"><span class="indicador"></span></span>
-	</label>
-</nav>
-
-<div class="scroll">
-
-	<input type="radio" name="grupo" id="rd-jan">
-	<input type="radio" name="grupo" id="rd-fev">
-	<input type="radio" name="grupo" id="rd-mar">
-	<input type="radio" name="grupo" id="rd-abr">
-	<input type="radio" name="grupo" id="rd-mai">
-	<input type="radio" name="grupo" id="rd-jun">
-	<input type="radio" name="grupo" id="rd-jul">
-	<input type="radio" name="grupo" id="rd-ago">
-	<input type="radio" name="grupo" id="rd-set">
-	<input type="radio" name="grupo" id="rd-out">
-	<input type="radio" name="grupo" id="rd-nov">
-	<input type="radio" name="grupo" id="rd-dez">
-
-	<section id="section">
-		<!-- <section class="bloco">
-			<div class="row">
-				<div class="dia">20</div>
-				<div class="evento">
-					<div class="descricao">Terreira Ogum de Mallê</div>
-					<div class="dia-semana">sexta-feira 20hs</div>
-				</div>
-			</div>
-			
-		</section> -->
-		<!-- <section class="bloco" id="no-internet">
-			<span>Sem Conexão com a internet</span>
-			<a href="" onclick="grava_dados()"><div class="tentar" >Tentar novamente </div></a>
-		</section> -->
-
-		<section class="bloco" id="no-internet">
-			<a href=""><div class="loader"></div></a>
+				</section>
+			</section>
 		</section>
-		
-	</section>
+	</div>
 
 </div>
+<div id="sem-internet"></div>
+<div id="load-box">
+	<div class="load"></div>
+</div>
 
-
-
+<script async type="text/javascript" src="js/menu-anim.js"></script>
 <script async type="text/javascript" src="js/main.js"></script>
-<!-- <script type="text/javascript" src="js/dados.js"></script>	 -->
-<!-- <script async type="text/javascript" src="https://evertoneberhardt.github.io/js/dados.js" onload="grava_dados()" onerror="offLine()"></script> -->
-<!-- <script async type="text/javascript" src="https://evertoneberhardt.github.io/js/dados.js"></script> -->
+
 </body>
 </html>

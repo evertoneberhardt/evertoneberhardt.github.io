@@ -1,6 +1,6 @@
 
 { "defumacao" : [ 
-			{ "nomePonto":"Defumação" , "ponto":"1Defuma com as ervas da Jurema<br>Defuma com arruda e guiné<br>Com alecrim bezoim e alfazema<br>Vamos de fumar filhos de fé<br>Defuma.<br>"} ],
+			{ "nomePonto":"Defumação" , "ponto":"Defuma com as ervas da Jurema<br>Defuma com arruda e guiné<br>Com alecrim bezoim e alfazema<br>Vamos de fumar filhos de fé<br>Defuma.<br>"} ],
 
 			"hinoAbertura" : [ 
 			{ "nomePonto":"Hino de Abertura" , "ponto":"Santo Antonio que é de ouro fino<br>levanta a bandeira e vamos trabalhar<br>Com a chave de São Pedro<br>Vamos abrir nossos trabalhos<br>Salve o povo de aruanda<br>São Jorge é o nosso defensor<br>Ao abrir nossos trabalos<br>Nós pedimos a proteção<br>A Deus pai todo poderoso<br>E a nossa mãe da Conceição.<br>"},
@@ -142,7 +142,7 @@
 
 			"oxala" : [ 
 			{ "nomePonto":"Oxalá" , "ponto":"Meu pai Oxalá é o rei vem me valer<br>Velho Omolu Atotô baluaê<br>Atotô baluaê, atotô baba.<br>"},
-			{ "nomePonto":"Oxalá" , "ponto":"Oxalá beô, Oxalá beá<br>Oxalá beô salve a penba dos Orixás<br>O Oxalá velinho, Oxalá Omio dé<br>Oxalá de Oromilaia, Oxalá d Umbanda<br>Ao cair do sol<br>Eu vou entrar nas matas<br>Eu vou falar com Ogum e a Jurema<br>Que Oxossi é o rei dos caçador.<br>"} ],
+			{ "nomePonto":"Oxalá" , "ponto":"Oxalá beô, Oxalá beá<br>Oxalá beô salve a pemba dos Orixás<br>O Oxalá velinho, Oxalá Omio dé<br>Oxalá de Oromilaia, Oxalá da Umbanda<br>Ao cair do sol<br>Eu vou entrar nas matas<br>Eu vou falar com Ogum e a Jurema<br>Que Oxossi é o rei dos caçador.<br>"} ],
 
 			"pontosCaboclosEmbora" : [
 			{"nomePonto":"Ponto Cablocos Embora", "ponto":"Adeus meus caboclos adeus<br>A aruanda me chama<br>E ela vai ao ló, ela vai ao ló<br>Umbanda e Quimbanda numa gira só.<br>"} ],
